@@ -1,0 +1,27 @@
+body{
+    margin:0px;
+    padding:0px;
+    background-color: cyan;
+}
+
+.userInformationcontainer {
+    width: 100%; 
+    background-color: white;
+}
+
+.userInformationcontainer table {
+      width: 100%;
+}
+
+.userInformationcontainer table td, .userInformationcontainer table tr, .userInformationcontainer table th {
+    border: 2px solid black;
+    height: 100%;
+    padding: 1rem;
+}
+
+.userInformationcontainer {
+    margin-top:150px;
+    margin-right:auto;
+    margin-left:auto;
+    width:80vw;
+}

@@ -1,0 +1,32 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color:aqua;
+}
+
+.text-container{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.text-container img{
+    width:100%;
+    height:400px;
+    margin:auto;
+    display:block;
+}
+
+.text{
+    font-size:18px;
+    color:black;
+    padding-top:20px;
+    margin-bottom:15px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.enquiry-button a {
+    text-decoration:none;
+    display:block;
+    margin:auto;
+    width:200px;
+}

@@ -1,0 +1,49 @@
+html {
+    font-size: 16px; }
+
+    body {
+      margin: 0px;
+      padding: 0px;
+      background-color: cyan;
+    }
+    
+    .heading {
+      font-size: 2rem; }
+    
+    .header {
+      border-bottom: 4px solid red; }
+    
+    .navbar-item {
+      background-color: orange;
+      border-right: 4px solid red; }
+    
+    .box {
+      height: auto;
+      background-color: lightgrey;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      margin-bottom:40px;    
+    }
+    
+    .create-conference-header {
+      font-size: 2rem;
+      color: red;
+      height: 10%; 
+    }
+    
+    .create-conference-box {
+      height: 90%;
+      border: 2px solid red;
+      padding: 1rem;
+      
+    }
+
+
+      .box{
+          background-color: white;
+          margin-top:75px;
+          width:90vw;
+          margin-left:auto;
+          margin-right:auto;
+      }

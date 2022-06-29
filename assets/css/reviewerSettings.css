@@ -1,0 +1,40 @@
+body{
+    margin:0px;
+    padding:0px;
+    background-color: aqua;
+}
+
+.box{
+    margin-top:75px;
+    width:90vw;
+    background-color: white;
+    margin-bottom:20px;
+    padding-bottom:10px;
+}
+
+.reviewer-info-header {
+    font-size: 2rem;
+    color: red;
+    height: 10%; 
+}
+  
+.reviewer-info-box {
+    height: 90%;
+    border: 2px solid red;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.reviewer-info-box a {
+    text-decoration:none;
+}
+
+.reviewer-info-box a div{
+    background-color: red;
+    color:white;
+}
+
+.reviewer-info-box a div:hover{
+    color:red;
+    background-color: white;
+}

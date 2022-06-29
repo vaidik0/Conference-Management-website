@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conferences</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/css/conference.css">
+    </head>
+    <body>
+        <div class="container-fluid mt-3">
+            <a class="navbar-brand" href="#" style="color:chartreuse;">IIITA CMS</a>
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <a class="navbar-brand" href="#" style="color:chartreuse;">IIITA CMS</a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/home">HOME</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/users/conferences/">MY CONFERENCES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/conferences/createConference">CREATE CONFERENCE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/conferences/invitations">INVITATIONS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/settings">SETTINGS</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/destroy-session">LOGOUT</a>
+                        </li>  
+                    </ul>
+                </div>  
+            </nav>
+        </div>
+        <div class="container-fluid box">
+            <div class="conference-header">
+                CONFERENCES:
+            </div>
+            <div class="conference-box">
+                <% if(conferences.length) { %>
+                <% for(conference of conferences) { %>
+                    <% if(conference) { %>
+                        <div class="conference">
+                            <div class="d-flex flex-column mb-3">
+                                <div class="p-2 bg-info border-bottom border-white">Event Name - <%=conference.eventName%></div>
+                                <div class="p-2 bg-info border-bottom border-white">Start Time - <%=conference.startTime%></div>
+                                <div class="p-2 bg-info border-bottom border-white">End Time - <%=conference.endTime%></div>
+                                <div class="p-2 bg-info border-bottom border-white">Date - <%=conference.date.toDateString()%></div>
+                                <div class="p-2 bg-info border-bottom border-white">Status - <%=conference.status%></div>
+                                <div class="p-2 bg-info border-bottom border-white">Venue - <%=conference.venue%></div>
+                                <div class="p-2 bg-info border-bottom border-white">Description - <%=conference.description%></div>
+                                <div class="p-2 bg-info border-bottom border-white">Capacity Of Room - <%=conference.capacityOfRoom%></div>
+                            </div>
+                            <% if(conference.creator==locals.user.id){ %>
+                                <% if((conference.status!="Paper Submitted")&&(conference.status!="Reviewed and Rejected")&&(conference.status!="Reviewed and Accepted")) { %>
+                                    <a href="/users/conferences/edit/<%=conference._id%>">
+                                        <button type="button" class="btn btn-success">Edit</button>
+                                    </a>
+                                    <a href="/users/conferences/invite/<%=conference._id%>">
+                                        <button type="button" class="btn btn-success">Invite Users</button>
+                                    </a>
+                                    <a href="/users/conferences/announcement/<%=conference._id%>">
+                                        <button type="button" class="btn btn-success">Make Announcement</button>
+                                    </a>
+                                <% } %>
+                                <% if(conference.status=="Approved By Administrator") { %>
+                                    <a href="/users/conferences/submitPaper/<%=conference._id%>">
+                                        <button type="button" class="btn btn-success">Submit Paper</button>
+                                    </a>
+                                <% } %>
+                                <% if((conference.status!="Reviewed and Rejected")&&(conference.status!="Reviewed and Accepted")) { %> 
+                                    <a href="/users/conferences/cancel/<%=conference._id%>">
+                                        <button type="button" class="btn btn-danger">Cancel Conference</button>
+                                    </a>
+                                <% } %>
+                            <% } else{ %>
+                                <a href="/users/conferences/viewAnnouncements/<%=conference._id%>">
+                                    <button type="button" class="btn btn-success">View Announcements</button>
+                                </a>
+                                <% if((conference.status!="Reviewed and Rejected")&&(conference.status!="Reviewed and Accepted")) { %> 
+                                    <a href="/users/conferences/withdrawParticipation/<%=conference._id%>">
+                                        <button type="button" class="btn btn-danger">Withdraw Participation</button>
+                                    </a>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    <% } %>
+                <% } %>
+                <% } else { %>
+                    <p style="margin-left:12px;font-weight:750">Conference created by you will appear here.</p>
+                <% } %>
+            </div>  
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    </body>
+</html>
